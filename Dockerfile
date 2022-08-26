@@ -13,4 +13,4 @@ RUN npm install pm2 -g
 COPY . /opt/app
 WORKDIR /opt/app
 RUN npm install
-CMD ["pm2", "start", "scrape.mjs", ";", "pm2", "start", "bot.mjs"]
+CMD ["./start.sh"]
