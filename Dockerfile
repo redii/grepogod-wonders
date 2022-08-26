@@ -1,4 +1,5 @@
 FROM node:16.15.1-alpine
+
 ARG DISCORD_CLIENT_TOKEN
 ENV DISCORD_CLIENT_TOKEN=$DISCORD_CLIENT_TOKEN
 ARG GREPO_COOKIE
@@ -7,7 +8,9 @@ ARG GREPO_URL
 ENV GREPO_URL=$GREPO_URL
 ARG GREPO_WORLD
 ENV GREPO_WORLD=$GREPO_WORLD
+
+RUN npm install pm2 -g
 COPY . /opt/app
 WORKDIR /opt/app
 RUN npm install
-CMD ["node", "scrape.mjs", "&", "node", "bot.mjs"]
+CMD "pm2 start scrape.mjs & pm2 start bot.mjs"
