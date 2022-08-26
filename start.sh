@@ -1,5 +1,3 @@
 #! /bin/bash
-pm2 start scrape.mjs
-pm2 start bot.mjs
-
-pm2 attach 0
+exec pm2 start scrape.mjs
+exec pm2 start bot.mjs
