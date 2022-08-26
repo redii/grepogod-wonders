@@ -15,4 +15,4 @@ RUN npm install pm2 -g
 COPY . /opt/app
 WORKDIR /opt/app
 RUN npm install
-CMD ["./start.sh"]
+CMD $EXEC
