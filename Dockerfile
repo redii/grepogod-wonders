@@ -10,4 +10,4 @@ ENV GREPO_WORLD=$GREPO_WORLD
 COPY . /opt/app
 WORKDIR /opt/app
 RUN npm install
-CMD ["node", "scrape"]
+CMD ["node", "scrape.mjs", "&", "node", "bot.mjs"]
