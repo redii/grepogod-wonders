@@ -2,20 +2,16 @@
   "name": "grepo_wonders",
   "version": "1.0.0",
   "description": "",
-  "main": "scrape.mjs",
+  "main": "index.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "scrape": "node scrape.mjs",
-    "bot": "node bot.mjs"
+    "start": "node index.mjs"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^13.6.0",
     "dotenv": "^16.0.0",
-    "fetch": "^1.1.0",
-    "got": "^12.0.3",
-    "sqlite": "^4.0.25",
-    "sqlite3": "^5.0.2"
+    "got": "^12.6.0",
+    "prisma": "^4.12.0"
   }
 }

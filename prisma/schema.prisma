@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Alliance {
+  id                                     Int      @id
+  alliance_name                          String
+  points                                 Int
+  alliance_flag_type                     Int      @default(0)
+  wonders_left                           Int      @default(99)
+  great_pyramid_of_giza_level            Int?
+  great_pyramid_of_giza_island_x         Int?
+  great_pyramid_of_giza_island_y         Int?
+  great_pyramid_of_giza_island_id        Int?
+  hanging_gardens_of_babylon_level       Int?
+  hanging_gardens_of_babylon_island_x    Int?
+  hanging_gardens_of_babylon_island_y    Int?
+  hanging_gardens_of_babylon_island_id   Int?
+  statue_of_zeus_at_olympia_level        Int?
+  statue_of_zeus_at_olympia_island_x     Int?
+  statue_of_zeus_at_olympia_island_y     Int?
+  statue_of_zeus_at_olympia_island_id    Int?
+  temple_of_artemis_at_ephesus_level     Int?
+  temple_of_artemis_at_ephesus_island_x  Int?
+  temple_of_artemis_at_ephesus_island_y  Int?
+  temple_of_artemis_at_ephesus_island_id Int?
+  mausoleum_of_halicarnassus_level       Int?
+  mausoleum_of_halicarnassus_island_x    Int?
+  mausoleum_of_halicarnassus_island_y    Int?
+  mausoleum_of_halicarnassus_island_id   Int?
+  colossus_of_rhodes_level               Int?
+  colossus_of_rhodes_island_x            Int?
+  colossus_of_rhodes_island_y            Int?
+  colossus_of_rhodes_island_id           Int?
+  lighthouse_of_alexandria_level         Int?
+  lighthouse_of_alexandria_island_x      Int?
+  lighthouse_of_alexandria_island_y      Int?
+  lighthouse_of_alexandria_island_id     Int?
+  createdAt                              DateTime @default(now())
+  updatedAt                              DateTime @updatedAt
+  changes                                Change[]
+}
+
+model Change {
+  id          Int      @id @default(autoincrement())
+  alliance    Alliance @relation(fields: [alliance_id], references: [id])
+  alliance_id Int
+  wonder      String
+  from_level  Int
+  to_level    Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
